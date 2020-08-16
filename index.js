@@ -1,13 +1,13 @@
-const name = ""; // input
+const text = "plain"; // input
 
-const encorded = encode(name);
+const encorded = encode(text);
 const decoded = decode(encorded.code, encorded.index);
 console.log({ encorded, decoded });
 
-function encode(name) {
-  let a = [...Array(name.length)].map((_, i) => name.slice(-i) + name.slice(0, -i)).sort();
+function encode(text) {
+  let a = [...Array(text.length)].map((_, i) => text.slice(-i) + text.slice(0, -i)).sort();
   const code = a.map((x) => x.slice(-1)).join("");
-  const index = a.indexOf(name);
+  const index = a.indexOf(text);
   return { code, index };
 }
 
